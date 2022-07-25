@@ -25,7 +25,7 @@ create table performance (
 create table event (
     event_id int primary key auto_increment,
     `date` date not null,
-    ticket_price double not null,
+    ticket_price decimal(5,2) not null,
     theater_id int not null,
     performance_id int not null,
     constraint fk_event_theater_id
