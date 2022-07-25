@@ -1,4 +1,4 @@
-use rcttc;
+-- use rcttc;
 
 -- insert into customer (first_name, last_name, email, address, phone_number)
 -- 	select 
@@ -45,7 +45,7 @@ use rcttc;
 --     inner join theater on rcttc_data.theater = theater.theater_name;
 
 -- drop table rcttc_data;
-    
+--     
 -- update event set
 -- 	ticket_price = 22.25
 -- where event_id = 5;
