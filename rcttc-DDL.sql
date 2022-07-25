@@ -12,22 +12,18 @@ create table customer (
 );
 create table theater (
     theater_id int primary key auto_increment,
-    `name` varchar(125) not null,
+    theater_name varchar(125) not null,
     address varchar(125) not null,
     phone varchar(20) not null,
     email varchar(125) not null
-  --   constraint fk_location_agency_id
---         foreign key (agency_id)
---         references agency(agency_id)
 );
 create table performance (
 	performance_id int primary key auto_increment,
-    `name` varchar(125) not null
+    performance_name varchar(125) not null 
 );
 
 create table event (
     event_id int primary key auto_increment,
-    `name` varchar(125) not null,
     `date` date not null,
     ticket_price double not null,
     theater_id int not null,
@@ -38,6 +34,8 @@ create table event (
 	constraint fk__event_performance_id
 		foreign key (performance_id)
         references performance(performance_id)
+	-- constraint uq_event_performance_performance_id
+-- 		unique (event_id, performance_id)
 );
 create table reservation (
 	reservation_id int primary key auto_increment,
@@ -45,9 +43,6 @@ create table reservation (
     theater_id int not null,
     customer_id int not null,
     event_id int not null,
-    constraint fk_reservation_theater_id
-        foreign key (theater_id)
-        references theater(theater_id),
 	constraint fk_rervation_customer_id
 		foreign key (customer_id)
         references customer(customer_id),
